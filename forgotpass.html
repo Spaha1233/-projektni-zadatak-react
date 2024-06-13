@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forgot Password</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #1E3A8A; /* Blue background color */
+        }
+
+        .forgot-container {
+            background-color: #1E40AF;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .forgot-container img {
+            width: 50px;
+            margin-bottom: 20px;
+        }
+
+        .forgot-container input[type="text"], .forgot-container input[type="password"] {
+            width: 100%;
+            padding: 15px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .forgot-container button {
+            width: 100%;
+            background-color: #3B82F6;
+            color: white;
+            padding: 15px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .forgot-container button:hover {
+            background-color: #2563EB;
+        }
+
+        .forgot-container a {
+            display: block;
+            margin-top: 10px;
+            color: #9CA3AF;
+            text-decoration: none;
+        }
+
+        .forgot-container a:hover {
+            color: #FFFFFF;
+        }
+
+        #password-comment {
+            margin-top: 20px;
+            color: white;
+            font-style: italic;
+        }
+    </style>
+    <script>
+        function resetPassword() {
+            let username = document.getElementById('username').value;
+            let newPassword = document.getElementById('new-password').value;
+
+            if(username === 'admin') {
+                // Update password in localStorage
+                localStorage.setItem('password', newPassword);
+                document.getElementById('password-comment').innerText = "/* New Password: " + newPassword + " */";
+                alert('Password reset successfully!');
+            } else {
+                alert('Invalid username. Please try again.');
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="forgot-container">
+        <img src="Shop.png" alt="Cart Icon">
+        <input type="text" id="username" placeholder="USERNAME">
+        <input type="password" id="new-password" placeholder="NEW PASSWORD">
+        <button onclick="resetPassword()">RESET PASSWORD</button>
+        <a href="index.html">Back to Login</a>
+        <div id="password-comment"></div>
+    </div>
+</body>
+</html>

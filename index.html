@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #1E3A8A; /* Blue background color */
+        }
+
+        .login-container {
+            background-color: #1E40AF;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .login-container img {
+            width: 50px;
+            margin-bottom: 20px;
+        }
+
+        .login-container input[type="text"], .login-container input[type="password"] {
+            width: 100%;
+            padding: 15px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .login-container button {
+            width: 100%;
+            background-color: #3B82F6;
+            color: white;
+            padding: 15px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .login-container button:hover {
+            background-color: #2563EB;
+        }
+
+        .login-container a {
+            display: block;
+            margin-top: 10px;
+            color: #9CA3AF;
+            text-decoration: none;
+        }
+
+        .login-container a:hover {
+            color: #FFFFFF;
+        }
+    </style>
+    <script>
+        // Initialize default credentials if not already set
+        if (!localStorage.getItem('username')) {
+            localStorage.setItem('username', 'admin');
+            localStorage.setItem('password', 'admin123');
+        }
+
+        function login() {
+            let username = document.getElementById('username').value;
+            let password = document.getElementById('password').value;
+
+            let storedUsername = localStorage.getItem('username');
+            let storedPassword = localStorage.getItem('password');
+
+            if(username === storedUsername && password === storedPassword) {
+                window.location.href = 'Product Store.html';
+            } else {
+                alert('Invalid credentials. Please try again.');
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="login-container">
+        <img src="Shop.png" alt="Cart Icon">
+        <input type="text" id="username" placeholder="USERNAME">
+        <input type="password" id="password" placeholder="PASSWORD">
+        <button onclick="login()">LOGIN</button>
+        <a href="forgotpass.html">Forgot password?</a>
+        <a href="signup.html">Don't have an account? Sign up here</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #1E3A8A; /* Blue background color */
+        }
+
+        .signup-container {
+            background-color: #1E40AF;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .signup-container img {
+            width: 50px;
+            margin-bottom: 20px;
+        }
+
+        .signup-container input[type="text"], .signup-container input[type="password"] {
+            width: 100%;
+            padding: 15px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .signup-container button {
+            width: 100%;
+            background-color: #3B82F6;
+            color: white;
+            padding: 15px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .signup-container button:hover {
+            background-color: #2563EB;
+        }
+
+        .signup-container a {
+            display: block;
+            margin-top: 10px;
+            color: #9CA3AF;
+            text-decoration: none;
+        }
+
+        .signup-container a:hover {
+            color: #FFFFFF;
+        }
+    </style>
+    <script>
+        function signUp() {
+            let newUsername = document.getElementById('new-username').value;
+            let newPassword = document.getElementById('new-password').value;
+
+            if(newUsername && newPassword) {
+                localStorage.setItem('username', newUsername);
+                localStorage.setItem('password', newPassword);
+                alert('Account created successfully! You can now log in.');
+                window.location.href = 'index.html';
+            } else {
+                alert('Please enter both username and password.');
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="signup-container">
+        <img src="Shop.png" alt="Cart Icon">
+        <input type="text" id="new-username" placeholder="NEW USERNAME">
+        <input type="password" id="new-password" placeholder="NEW PASSWORD">
+        <button onclick="signUp()">SIGN UP</button>
+        <a href="index.html">Back to Login</a>
+    </div>
+</body>
+</html>
